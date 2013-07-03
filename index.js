@@ -6,7 +6,7 @@ var fs = require('fs');
 module.exports = function(config, cb) {
   var logger = require('loggly-console-logger')
   var options = {}
-  var router = config.get('router')
+  var router = config.get('application:router')
   if (!router) {
     return cb({
       message: 'failed to start secure-proxy, missing config',

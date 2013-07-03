@@ -4,8 +4,10 @@
     "certFilePath": "test/cert.pem",
     "port": 3008
   },
-  "router": {
-    "host": "localhost",
-    "port": 5050
+  "application": {
+    "router": {
+      "host": "localhost",
+      "port": 5050
+    }
   }
 }

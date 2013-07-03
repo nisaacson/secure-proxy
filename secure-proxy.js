@@ -9,12 +9,13 @@ if (argv.config) {
   config.file({
     file: configFilePath
   });
-}
-else {
+} else {
   config.defaults({
-    router: {
-      host: argv['router:host'].replace(/"/g,''),
-      port: argv['router:port']
+    application: {
+      router: {
+        host: argv['router:host'].replace(/"/g, ''),
+        port: argv['router:port']
+      }
     },
     tls: {
       port: argv['tls:port'],

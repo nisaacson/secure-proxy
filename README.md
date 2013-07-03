@@ -24,9 +24,11 @@ A `/path/to/config.json` file path can be supplied as a --config argument when r
 
 ```javascript
 {
-  "router": {
-    "host": "127.0.0.1",
-    "port": 4000
+  "application": {
+    "router": {
+      "host": "127.0.0.1",
+      "port": 4000
+    }
   },
   "tls": {
     "keyFilePath": "/path/to/key.pem",
@@ -39,7 +41,7 @@ A `/path/to/config.json` file path can be supplied as a --config argument when r
 You can also specify the configuration options as command line paramters
 
 ```bash
-node secure-proxy.json --router:host="127.0.0.1" --router:port=4000 --tls:keyFilePath="/path/to/key.pem" --tls:certFilePath="/path/to/cert.pem" --tls:port=443
+node secure-proxy.json --application:router:host="127.0.0.1" --application:router:port=4000 --tls:keyFilePath="/path/to/key.pem" --tls:certFilePath="/path/to/cert.pem" --tls:port=443
 ```
 
 
@@ -52,9 +54,11 @@ By default the secure proxy will log to the console. If you wish to send your lo
   "loggly": {
     "inputToken": "loggly input token here"
   },
-  "router": {
-    "host": "127.0.0.1",
-    "port": 4000
+  "application": {
+    "router": {
+      "host": "127.0.0.1",
+      "port": 4000
+    }
   },
   "tls": {
     "keyFilePath": "/path/to/key.pem",

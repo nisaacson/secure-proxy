@@ -55,6 +55,6 @@ function setupRouter(cb) {
     res.writeHead(200)
     res.end(insecureResponseBody)
   })
-  var port = config.get('router:port')
+  var port = config.get('application:router:port')
   server.listen(port, cb)
 }
