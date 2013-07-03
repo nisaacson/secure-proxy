@@ -21,7 +21,8 @@
     "http-proxy": "~0.10.3",
     "loggly-console-logger": "~1.0.8",
     "eyespect": "~0.1.10",
-    "should": "~1.2.2"
+    "should": "~1.2.2",
+    "optimist": "~0.6.0"
   },
   "devDependencies": {
     "mocha": "~1.12.0",
