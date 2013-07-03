@@ -1,17 +1,26 @@
 # Secure Proxy
 TLS terminator that takes all https requests, strips of the tls, and forwards the request over http to a router service
 
-## Services
-This proxy server handles all https traffic on port 443. It strips the encryption and forwards the connection on to the **router** service. The router configuration details are specified in a config.json file or as command line args
 
-### Configuration
-A config.json file path can be supplied as a --config argument when running the *secure-proxy.js* file
+# Installation
 
+Clone the repository. In the root directory of the repository, execute the following
+
+```bash
+node secure-proxy.js --config test/config.json
 ```
-node secure-proxy.js --config ./test/config.json
-```
 
-config.json should contain at least the following
+This will start the secure proxy server using a self-signed certificate. The `test/config.json` settings will make the secure proxy server forward all traffic to a router server at
+
+* host: localhost
+* port: 4000
+
+
+
+# Configuration
+A `/path/to/config.json` file path can be supplied as a --config argument when running the *secure-proxy.js* file
+
+`config.json` should contain at least the following
 
 ```javascript
 {
