@@ -21,12 +21,31 @@ if (argv.config) {
       port: argv['tls:port'],
       keyFilePath: argv['tls:keyFilePath'],
       certFilePath: argv['tls:certFilePath']
+    },
+    loggly: {
+      inputToken: argv['loggly:inputToken'],
+      subdomain: argv['loggly:subdomain']
     }
   })
 }
-
+var logger = require('loggly-console-logger')
 require('./index')(config, function(err, reply) {
+  if (err) {
+    logger.error('erorr starting secure proxy', {
+      error: err,
+      section: 'start',
+      role: 'secure-proxy'
+    })
+  }
   should.not.exist(err, 'error starting secure proxy: ' + JSON.stringify(err))
+
+  logger.info('secure proxy online', {
+    error: err,
+    section: 'start',
+    role: 'secure-proxy',
+    port: reply.port
+  })
+
   if (process.send) {
     process.send('listening')
   }
