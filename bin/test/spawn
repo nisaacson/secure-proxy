@@ -1,0 +1,1 @@
+fleet spawn -- node spinUpSecureProxy.js --config /home/node/apps/docparse/server/test/config.json

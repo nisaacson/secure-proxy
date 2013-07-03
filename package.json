@@ -1,0 +1,27 @@
+{
+  "name": "docparse-secure-proxy",
+  "version": "1.0.0",
+  "description": "Handle ssl connections and forward them to the http router'",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": "",
+  "keywords": [
+    "docparse",
+    "ssl"
+  ],
+  "author": "Noah Isaacson",
+  "license": "BSD",
+  "dependencies": {
+    "http-proxy": "~0.10.3",
+    "loggly-console-logger": "~1.0.8"
+  },
+  "devDependencies": {
+    "eyespect": "~0.1.10",
+    "should": "~1.2.2",
+    "mocha": "~1.12.0",
+    "request": "~2.21.0",
+    "portfinder": "~0.2.1"
+  }
+}

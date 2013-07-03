@@ -1,0 +1,1 @@
+fleet spawn --drone docparse001 -- node spinUpSecureProxy.js --config /home/node/apps/docparse/server/production/config.json

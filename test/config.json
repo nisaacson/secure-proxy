@@ -1,0 +1,11 @@
+{
+  "tls": {
+    "keyFilePath": "test/key.pem",
+    "certFilePath": "test/cert.pem",
+    "port": 3008
+  },
+  "router": {
+    "host": "localhost",
+    "port": 5050
+  }
+}
