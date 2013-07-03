@@ -3,10 +3,9 @@ var https = require('https')
 var httpProxy = require('http-proxy');
 var fs = require('fs');
 
-function router(config, cb) {
+module.exports = function(config, cb) {
   var logger = require('loggly-console-logger')
   var options = {}
-
   var router = config.get('router')
   if (!router) {
     return cb({
@@ -63,13 +62,20 @@ function router(config, cb) {
       cert: cert
     }
   }
+  var target = {
+    host: router.host,
+    port: router.port
+  }
+
   var proxy = new httpProxy.HttpProxy({
-    target: {
-      host: router.host,
-      port: router.port
-    }
+    target: target
   });
   var server = https.createServer(options.https, function(req, res) {
+    logger.info('proxying secure request', {
+      role: 'secure-proxy',
+      headers: req.headers,
+      url: req.url
+    })
     proxy.proxyRequest(req, res)
   })
   var proxyServerPort = tls.port || 443
@@ -87,7 +93,3 @@ function router(config, cb) {
     cb(null, output)
   })
 }
-
-
-
-module.exports = router

@@ -7,6 +7,8 @@ test:
 	$(MOCHA) $(shell find test/* -prune -name "*test.js") $(FLAGS)
 proxy:
 	$(MOCHA) test/proxy-test.js $(FLAGS)
+cli-config:
+	$(MOCHA) test/cli-config-test.js $(FLAGS)
 
 .PHONY: test
 

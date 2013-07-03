@@ -2,16 +2,29 @@ var should = require('should')
 var inspect = require('eyespect').inspector()
 var assert = require('assert')
 var fs = require('fs')
-var optimist = require('optimist');
-var nconf = require('nconf')
-var argv = optimist.demand(['config']).argv;
+var argv = require('optimist').argv;
+var config = require('nconf')
 var configFilePath = argv.config
-assert.ok(fs.existsSync(configFilePath), 'config file not found at path: ' + configFilePath);
-var config = nconf.argv().env().file({
-  file: configFilePath
-});
+if (argv.config) {
+  config.file({
+    file: configFilePath
+  });
+}
+else {
+  config.defaults({
+    router: {
+      host: argv['router:host'].replace(/"/g,''),
+      port: argv['router:port']
+    },
+    tls: {
+      port: argv['tls:port'],
+      keyFilePath: argv['tls:keyFilePath'],
+      certFilePath: argv['tls:certFilePath']
+    }
+  })
+}
 
 require('./index')(config, function(err, reply) {
   should.not.exist(err, 'error starting secure proxy: ' + JSON.stringify(err))
-  inspect(reply.port, 'docparse router online')
+  process.send('listening')
 })
