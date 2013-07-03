@@ -8,6 +8,11 @@ assert.ok(fs.existsSync(configFilePath), 'config file not found at path: ' + con
 var config = require('nconf').env().argv().file({
   file: configFilePath
 })
+
+var logger = require('loggly-console-logger')
+// disable logging to console
+logger.transports.console.level = 'silly'
+
 var secureProxy = require('../index')
 describe('Secure Proxy', function() {
   it('should start secure proxy server', function(done) {

@@ -15,7 +15,6 @@ var secureProxy = require('../index')
 var logger = require('loggly-console-logger')
 // disable logging to console
 logger.transports.console.level = 'silly'
-
 var insecureResponseBody = 'hello world'
 describe('Proxy', function() {
   var port

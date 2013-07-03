@@ -60,7 +60,6 @@ describe('Command Line Config', function() {
           url: url,
           strictSSL: false
         }
-        inspect(url, 'url')
         request(opts, function(err, res, body) {
           should.not.exist(err)
           body.should.eql(insecureResponseBody)
