@@ -27,5 +27,7 @@ if (argv.config) {
 
 require('./index')(config, function(err, reply) {
   should.not.exist(err, 'error starting secure proxy: ' + JSON.stringify(err))
-  process.send('listening')
+  if (process.send) {
+    process.send('listening')
+  }
 })
