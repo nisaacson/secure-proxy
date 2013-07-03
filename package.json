@@ -1,6 +1,6 @@
 {
   "name": "docparse-secure-proxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Handle ssl connections and forward them to a router server over standard http",
   "main": "index.js",
   "scripts": {
